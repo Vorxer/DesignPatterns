@@ -12,6 +12,18 @@ public class GameState {
         this.players = (ArrayList<Player>) players.clone();
     }
 
+    public ArrayList<Player> getPlayers() {
+        return (ArrayList<Player>)players.clone();
+    }
+
+    public GameHistory save(){
+       return new GameHistory(getPlayers());
+    }
+
+    public void revert(GameHistory gameHistory){
+        this.players = gameHistory.getPlayers();
+    }
+
     static class GameHistory{
         ArrayList<Player> players;
 
@@ -24,4 +36,10 @@ public class GameState {
         }
     }
 
+    @Override
+    public String toString() {
+        return "GameState{" +
+                "players=" + players +
+                '}';
+    }
 }

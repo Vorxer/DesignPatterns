@@ -7,10 +7,24 @@ public class Player implements Cloneable{
     int xCoordinate;
     int yCoordinate;
 
+    public Player(String name) {
+        Name = name;
+    }
+
     public void update(int hitPoints, int xCoordinate, int yCoordinate){
         this.hitPoints = hitPoints;
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "Name='" + Name + '\'' +
+                ", hitPoints=" + hitPoints +
+                ", xCoordinate=" + xCoordinate +
+                ", yCoordinate=" + yCoordinate +
+                '}';
     }
 
     public String getName() {
